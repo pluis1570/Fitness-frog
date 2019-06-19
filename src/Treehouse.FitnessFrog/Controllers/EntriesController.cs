@@ -20,7 +20,7 @@ namespace Treehouse.FitnessFrog.Controllers
 
         public ActionResult Index()
         {
-            
+
             List<Entry> entries = _entriesRepository.GetEntries();
 
             // Calculate the total activity.
@@ -44,8 +44,11 @@ namespace Treehouse.FitnessFrog.Controllers
         {
             var entry = new Entry()
             {
-                Date = DateTime.Today
+                Date = DateTime.Today,
             };
+
+            ViewBag.ActivitiesSelectedListItems = new SelectList(
+                Data.Data.Activities, "Id", "Name");
             return View(entry);
         }
 
@@ -60,6 +63,10 @@ namespace Treehouse.FitnessFrog.Controllers
                 return RedirectToAction("Index");
 
             }
+
+            ViewBag.ActivitiesSelectedListItems = new SelectList(
+                Data.Data.Activities, "Id", "Name");
+
             return View(entry);
         }
 
