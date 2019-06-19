@@ -1,4 +1,5 @@
 ﻿@model Treehouse.FitnessFrog.Models.Entry
+
 @{
     /**/
 
@@ -14,13 +15,16 @@
     <div class="row">
 
         <div class="col-md-6">
-            @Html.LabelFor(m => m.Date, new { @class = "control-label" })
-            @Html.TextBoxFor(m => m.Date, null, new { @class = "form-control" })
+
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Date, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control" })
+            </div>
 
             <div class="form-group">
                 @Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
                 @Html.TextBoxFor(m => m.ActivityId, null, new { @class = "form-control" })
-
             </div>
 
             <div class="form-group">
@@ -44,7 +48,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(m => m.Notes, new { @class = "control-label" })
-                @Html.TextAreaFor(m => m.Notes, 14,20, new { @class = "form-control" })
+                @Html.TextAreaFor(m => m.Notes, 14, 20, new { @class = "form-control" })
             </div>
 
         </div>
